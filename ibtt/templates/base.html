@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <title>{% block title %}{% endblock %}</title>
+    <link href="../static/css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <script data-main="../static/js/main" src="../static/js/require.js"></script>
+</head>
+<body>
+<div>
+    <div class="container">
+        {% block navbar %}{% endblock %}
+    </div>
+</div>
+<div class="main">
+    <div class="container main-container">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+</body>
+</html>
