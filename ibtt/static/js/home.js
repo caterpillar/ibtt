@@ -22,7 +22,7 @@ $(function (){
 
     function getNewItems() {
         var newItemContainer = $('<div/>');
-        for (var i = 0; i < 6; i++) {
+        for (var i = 0; i < 12; i++) {
             if (currentIndex < ghostCount) {
                 newItemContainer.append(ghostNode.get(ghostIndexArray[currentIndex]));
                 currentIndex++;
@@ -51,14 +51,13 @@ $(function (){
         var items = getNewItems().css('opacity', 0);
         processNewItems(items);
         masNode.append(items);
-
         imagesLoading = true;
         items.imagesLoaded(function () {
             imagesLoading = false;
             items.css('opacity', 1);
             masNode.masonry({
                 itemSelector: '.thumbnail',
-                isFitWidth: true
+                isFitWidth: false
             });
         });
     }
@@ -81,22 +80,18 @@ $(function (){
     initMasonry();
 
     $(window).scroll(function () {
-
         if ($(document).height() - $(window).height() - $(document).scrollTop() < 10) {
-
             if (!imagesLoading) {
                 appendToMasonry();
             }
-
         }
+    });
+
+    $('[data-toggle="popover"]').popover()
+
+    $('#login_btn').on('click', function() {
 
     });
 
-    function randomColor() {
-        var rand = Math.floor(Math.random() * 0xFFFFFF).toString(16);
-        for (; rand.length < 6;) {
-            rand = '0' + rand;
-        }
-        return '#' + rand;
-    }
+
 });

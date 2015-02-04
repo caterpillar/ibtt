@@ -23,16 +23,24 @@
                         <span class="icon-bar"></span>
                     </button>
                     <ul class="nav navbar-nav navbar-brand brand">
-                        <a href="../" class="btn btn-outline">登录</a>
-                        <a href="../" class="btn btn-outline">下载</a>
+                        {#                        <a href="../" class="btn btn-outline">登录</a>#}
+                        {#                        <a href="../" class="btn btn-outline">下载</a>#}
                     </ul>
                 </div>
                 <nav class="collapse navbar-collapse bs-navbar-collapse">
                     <ul class="nav navbar-nav navbar-brand brand navbar-right">
+                        {#                        <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus#}
+                        {#                            sagittis lacus vel augue laoreet rutrum faucibus.">#}
+                        {#                              Popover on bottom#}
+                        {#                        </button>#}
+                        <a id="login_btn" href="#" class="btn btn-outline" data-toggle="modal"
+                           data-target="#loginModal">登录</a>
+                        <a href="../" class="btn btn-outline">注册</a>
                         <a id="drop6" href="#" class="dropdown-toggle btn btn-outline" data-toggle="dropdown"
                            aria-haspopup="true" role="button" aria-expanded="false">
                             功能 <span class="glyphicon glyphicon-menu-hamburger"></span>
                         </a>
+                        {% include "login.html" %}
                     </ul>
                 </nav>
             </div>
@@ -42,15 +50,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-1"></div>
-            <div id="container" class="col-md-10 btn btn-outline">
-                <input id="text_input" type="text" value="1111">
-                .col-md-1
+            <div id="masonry" class="col-md-10 container-fluid">
             </div>
             <div class="col-md-1"></div>
         </div>
     </div>
 
-    <div id="masonry" class="container-fluid">
+    <div class="container-fluid">
     </div>
 
     <div id="masonry_ghost" class="hide">
