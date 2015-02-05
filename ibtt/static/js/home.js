@@ -89,9 +89,4 @@ $(function (){
 
     $('[data-toggle="popover"]').popover()
 
-    $('#login_btn').on('click', function() {
-
-    });
-
-
 });
