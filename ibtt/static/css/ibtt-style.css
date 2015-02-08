@@ -71,3 +71,11 @@
 .lightbox .lb-image {
     max-width: none;
 }
+
+.navbar-task {
+  float: left;
+  height: 50px;
+  padding: 8px 8px;
+  font-size: 18px;
+  line-height: 20px;
+}

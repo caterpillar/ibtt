@@ -5,28 +5,24 @@
 $(function () {
         $('#login_form').validate({
             onKeyup: true,
-            focusCleanup: true, focusInvalid: false,
-            errorClass: "unchecked",
-            validClass: "checked",
-            errorElement: "span",
             eachValidField: function () {
                 $(this).closest('div').removeClass('has-error').addClass('has-success');
             },
             eachInvalidField: function () {
                 $(this).closest('div').removeClass('has-success').addClass('has-error');
-            },
-            submitHandler: function (form) {
-                alert(1);
             }
         });
 
         $('#login_form').on('submit', function() {
             $(this).ajaxSubmit({
                 type: 'post',
-                url: 'login',
+                url: 'login/',
                 dataType: "json",
                 success: function(data) {
-                    alert(data);
+                    //TODO
+                    //if(data.success) {
+                        window.location = 'my_home'
+                    //}
                 },
                 error: function(data) {
                     alert(data);

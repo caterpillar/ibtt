@@ -2,6 +2,8 @@
  * Created by lishaohua on 15-1-22.
  */
 $(function (){
+    $("header").headroom();
+
     var ghostNode = $('#masonry_ghost').find('.thumbnail'), i, ghostIndexArray = [];
     var ghostCount = ghostNode.length;
     for (i = 0; i < ghostCount; i++) {

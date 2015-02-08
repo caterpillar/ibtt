@@ -1,5 +1,6 @@
 # coding=utf-8
 __author__ = 'lishaohua'
+from django.shortcuts import RequestContext
 
 import json
 from django.http import HttpResponse

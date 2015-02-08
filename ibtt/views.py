@@ -2,6 +2,7 @@
 
 __author__ = 'lishaohua'
 
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render_to_response
 from django.contrib import auth
 from django.http import HttpResponseRedirect
@@ -15,6 +16,7 @@ def home(request):
 # Create your views here.
 
 
+@csrf_exempt
 def login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -31,3 +33,7 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return Json().http_response()
+
+
+def register(request):
+    pass
