@@ -1,0 +1,51 @@
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">注册</h4>
+            </div>
+            <div class="modal-body" style="width: 400px;margin-left: 250px;">
+                <form class="form-signin" id="login_form">
+                    {% csrf_token %}
+                    <h2 class="form-signin-heading">爱宝天天</h2>
+                    <div class="control-group input-append">
+                        <label for="username">用户名</label>
+                        <input type="text" id="username" name="username" class="form-control" placeholder="用户名"
+                               data-required autofocus>
+                    </div>
+                    <div class="control-group input-append">
+                        <label for="username">手机号码</label>
+                        <input type="text" id="username" name="username" class="form-control" placeholder="手机号码"
+                               data-required autofocus>
+                    </div>
+                    <div class="control-group input-append">
+
+                        <input type="text" id="username" name="username" class="form-control" placeholder="邮箱"
+                               data-required autofocus>
+                    </div>
+                    <div class="control-group input-append">
+                        <input type="password" id="password" name="password" class="form-control" placeholder="密码"
+                               data-required>
+                    </div>
+                    <div class="control-group input-append">
+                        <input type="password" id="password" name="password" class="form-control" placeholder="重复密码"
+                               data-required>
+                    </div>
+                    <br />
+                    <div>
+                        <img alt="..." class="img-circle" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA0Njg3NSIgeT0iNzAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj4xNDB4MTQwPC90ZXh0PjwvZz48L3N2Zz4=">
+                    </div>
+                    <div class="content-right">
+                        <button class="btn btn-outline" id="login_btn" type="submit">确定</button>
+                        <button class="btn btn-outline" data-dismiss="modal">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="../static/js/jquery-validate.js" type="text/javascript"></script>
+        <script src="../static/js/register.js" type="text/javascript"></script>
+        <script src="../static/js/jquery.form.js" type="text/javascript"></script>
+    </div>
+</div>

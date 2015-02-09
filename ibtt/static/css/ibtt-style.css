@@ -2,6 +2,7 @@
     padding: 15px;
     text-align: right;
 }
+
 .btn-outline {
     color: #8EAB52;
     background-color: transparent;
@@ -73,9 +74,14 @@
 }
 
 .navbar-task {
-  float: left;
-  height: 50px;
-  padding: 8px 8px;
-  font-size: 18px;
-  line-height: 20px;
+    float: left;
+    height: 50px;
+    padding: 8px 8px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+#myCarousel {
+    height: 360px;
+    background-color: #83A047;
 }
