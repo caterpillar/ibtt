@@ -1,37 +1,39 @@
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">登陆</h4>
-            </div>
-            <div class="modal-body">
-                <form class="form-signin" id="login_form">
-                    {% csrf_token %}
-                    <h2 class="form-signin-heading">爱宝天天</h2>
-                    <div class="control-group input-append">
-                        <input type="text" id="username" name="username" class="form-control" placeholder="手机/邮箱/用户名"
-                               data-required autofocus>
-                    </div>
-                    <div class="control-group input-append">
-                    <input type="password" id="password" name="password" class="form-control" placeholder="密码"
-                           data-required>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" value="remember-me">自动登录
-                        </label>
-                    </div>
-                    <div class="content-right">
-                        <button class="btn btn-outline" id="login_btn" type="submit">登录</button>
-                        <button class="btn btn-outline" data-dismiss="modal">取消</button>
-                    </div>
-                </form>
+{% extends "base-modal.html" %}
+{% block modal-id %}loginModal{% endblock %}
+{% block modal-title %}登录{% endblock %}
+
+{% block form %}
+
+    <form class="form-horizontal" id="login_form">
+        {% csrf_token %}
+        <h2 class="form-signin-heading">爱宝天天</h2>
+        <div class="form-group">
+            <label for="username" class="col-sm-2 control-label">登录名</label>
+            <div class="col-sm-9">
+                <input type="text" id="username" name="username" class="form-control" placeholder="手机/邮箱/用户名"
+                       data-required autofocus>
             </div>
         </div>
-        <script src="../static/js/jquery-validate.js" type="text/javascript"></script>
-        <script src="../static/js/login.js" type="text/javascript"></script>
-        <script src="../static/js/jquery.form.js" type="text/javascript"></script>
-    </div>
-</div>
+        <div class="form-group">
+            <label for="password" class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-9">
+                <input type="password" id="password" name="password" class="form-control" placeholder="密码"
+                       data-required>
+            </div>
+        </div>
+        <div class="checkbox form-group">
+            <label for="remember_me" class="col-sm-2 control-label"></label>
+            <div class="col-sm-9">
+                <input id="remember_me" type="checkbox" value="remember-me">自动登录
+            </div>
+        </div>
+        <div class="content-right">
+            <button class="btn btn-outline" id="login_btn" type="submit">登录</button>
+            <button class="btn btn-outline" data-dismiss="modal">取消</button>
+        </div>
+    </form>
+{% endblock %}
+
+{% block modal-script %}
+    <script src="../static/js/login.js" type="text/javascript"></script>
+{% endblock %}

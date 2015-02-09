@@ -24,7 +24,7 @@ $(function (){
 
     function getNewItems() {
         var newItemContainer = $('<div/>');
-        for (var i = 0; i < 12; i++) {
+        for (var i = 0; i < 8; i++) {
             if (currentIndex < ghostCount) {
                 newItemContainer.append(ghostNode.get(ghostIndexArray[currentIndex]));
                 currentIndex++;
