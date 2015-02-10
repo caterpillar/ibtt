@@ -3,7 +3,7 @@
 {% block modal-title %}注册{% endblock %}
 
 {% block form %}
-    <form class="form-horizontal" id="login_form">
+    <form class="form-horizontal" name="register_form" id="simple_reg_info">
         {% csrf_token %}
         <h2 class="form-signin-heading">爱宝宝的每一天</h2>
 
@@ -35,13 +35,38 @@
         </div>
         <div class="content-right">
             <button class="btn btn-outline" id="login_btn" type="submit">注册</button>
-            <button class="btn btn-outline" id="next_btn" type="button">下一步</button>
+            <button class="btn btn-outline" name="next_btn" tabindex="0" type="button">下一步</button>
             <button class="btn btn-outline" data-dismiss="modal">取消</button>
         </div>
     </form>
 
-{% endblock %}
+    <form class="form-horizontal hidden" name="register_form" id="extend_reg_info">
+        {% csrf_token %}
+        <h2 class="form-signin-heading">爱宝宝的每一天</h2>
 
+        <div class="form-group">
+            <label for="username" class="col-sm-2 control-label">aaaaaaaaaa</label>
+            <div class="col-sm-9">
+                <input type="text" id="username" name="username" class="form-control" placeholder="bbbbbbbbbbb"
+                       data-required autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username" class="col-sm-2 control-label">dddddddddddddddd</label>
+            <div class="col-sm-9">
+                <input type="text" id="username" name="username" class="form-control" placeholder="eeeeeeeeeeeeeeee"
+                    data-required>
+            </div>
+        </div>
+
+        <div class="content-right">
+            <button class="btn btn-outline" name="next_btn" tabindex="1" type="button">下一步</button>
+            <button class="btn btn-outline" data-dismiss="modal">取消</button>
+        </div>
+
+    </form>
+
+{% endblock %}
 {% block modal-script %}
-    <script src="../static/js/jquery.form.js" type="text/javascript"></script>
+    <script src="../static/js/register.js" type="text/javascript"></script>
 {% endblock %}
