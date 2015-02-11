@@ -4,28 +4,27 @@
 {% block form %}
     <div id="slidesContainer">
         <div class="slide">
-            <form class="form-horizontal" name="register_form" id="simple_reg_info">
+            <form class="form-horizontal" name="register_form" id="simple_info_form">
                 {% csrf_token %}
                 <h2 class="form-signin-heading">基本信息</h2>
                 <div class="form-group">
                     <label for="username" class="col-sm-2 control-label">用户名</label>
-
                     <div class="col-sm-9">
                         <input type="text" id="username" name="username" class="form-control" placeholder="用户名"
-                               data-required autofocus data-trim>
+                               data-required data-trim data-pattern="[a-zA-Z0-9_]{5,30}">
                     </div>
                 </div>
                 <div class="form-group" style="display: block;">
                     <label for="email" class="col-sm-2 control-label">Email</label>
                     <div class="col-sm-9">
                         <input type="text" id="email" name="email" class="form-control" placeholder="电子邮箱"
-                               data-required data-trim>
+                               data-trim data-pattern="([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="username" class="col-sm-2 control-label">密码</label>
+                    <label for="password" class="col-sm-2 control-label">密码</label>
                     <div class="col-sm-9">
-                        <input type="text" id="username" name="username" class="form-control" placeholder="密码"
+                        <input type="password" id="password" name="password" class="form-control" placeholder="密码"
                                data-required data-trim>
                     </div>
                 </div>
@@ -35,14 +34,13 @@
                          src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA0Njg3NSIgeT0iNzAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj4xNDB4MTQwPC90ZXh0PjwvZz48L3N2Zz4=">
                 </div>
                 <div class="content-right">
-                    <button class="btn btn-outline" id="login_btn" type="submit">注册</button>
-                    <button class="btn btn-outline" name="next_btn" tabindex="0" type="button">下一步</button>
+                    <button class="btn btn-outline" name="commit_btn" tabindex="0" type="submit">注册</button>
                     <button class="btn btn-outline" data-dismiss="modal">取消</button>
                 </div>
             </form>
         </div>
         <div class="slide">
-            <form class="form-horizontal" name="register_form" style="display: none;" id="extend_reg_info">
+            <form class="form-horizontal" name="register_form" style="display: none;" id="baby_info_form">
                 {% csrf_token %}
                 <h2 class="form-signin-heading">宝宝信息</h2>
                 <div class="form-group">
@@ -87,7 +85,7 @@
             </form>
         </div>
         <div class="slide">
-            <form class="form-horizontal" name="register_form" style="display: none;" id="extend_reg_info">
+            <form class="form-horizontal" name="register_form" style="display: none;" id="extend_info_form">
                 {% csrf_token %}
                 <h2 class="form-signin-heading">其他信息</h2>
                 <div class="form-group">

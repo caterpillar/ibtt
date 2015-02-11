@@ -14,9 +14,33 @@ $(function () {
     $('[name="next_btn"]').on('click', function() {
         var index = this.tabIndex;
         var current_form = $(register_forms[index]);
-        current_form.slideUp();
+        current_form.slideUp('normal', function() {
+            current_form.find('input').popover('destroy');
+        });
         var next_form = $(register_forms[index + 1]);
         next_form.slideDown();
+    });
+
+    $('#simple_info_form').on('submit', function() {
+        var $form = $(this);
+        $form.ajaxSubmit({
+                type: 'post',
+                url: 'register_base_info/',
+                dataType: "json",
+                success: function(data) {
+                    if(data.success) {
+                        alert('注册成功,请继续');
+                        $form.slideUp();
+                        $form.parent().find('+div>form').slideDown();
+                    } else {
+                        alert('data.msg');
+                    }
+                },
+                error: function(data) {
+                    alert(data);
+                }
+            });
+        return false;
     });
 
 });
