@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Django settings for ibtt project.
 
@@ -44,8 +45,11 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.transaction.TransactionMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
@@ -100,3 +104,14 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'ibtt/templates'),
 
 )
+
+
+# email config
+EMAIL_HOST = 'smtp.126.com'
+EMAIL_HOST_USER = 'ibabyeveryday@126.com'
+EMAIL_HOST_PASSWORD = 'ibaby@2015'
+EMAIL_PORT = '25'
+FILE_CHARSET = 'utf-8'
+EMAIL_SUBJECT_PREFIX = u'[爱宝天天]'
+EMAIL_USE_TLS = True
+SERVER_EMAIL = 'li_ye_hua@126.com'

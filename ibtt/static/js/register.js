@@ -33,7 +33,7 @@ $(function () {
                         $form.slideUp();
                         $form.parent().find('+div>form').slideDown();
                     } else {
-                        alert('data.msg');
+                        alert(data.msg);
                     }
                 },
                 error: function(data) {
