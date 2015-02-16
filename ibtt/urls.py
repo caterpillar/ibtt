@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from base.views import home, login, logout, register_base_info
+from base.views import home, login, logout, register_base_info, email_activate
 from baby.views import my_home
 
 
@@ -12,9 +12,10 @@ urlpatterns = patterns('',
                        url(r'^admin/', include(admin.site.urls)),
                        url(r'^$', home),
                        url(r'^login/$', login),
-                       url(r'^logout$', logout),
+                       url(r'^logout/$', logout),
                        url(r'^my_home/$', my_home),
-                       url(r'^register_base_info', register_base_info),
+                       url(r'^register_base_info/$', register_base_info),
+                       url(r'^email_activate/(.+)/(.+)/$', email_activate)
 
 
 )

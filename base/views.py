@@ -43,22 +43,8 @@ def logout(request):
     return Json().http_response()
 
 
-def _mail_content(user):
-    html_content = u'%s,您好:<br/>' % user.username
-    html_content += u'&nbsp;&nbsp;您需要点击超链接激活您的邮件:<a href="http://localhost:8000/activate/%s">这里</a>' % Md5Util.md5(user.password)
-    return html_content
-
-
-def _send_reg_activate_mail(user):
-    subject, mail_from, mail_to = '来自爱宝天天的账号激活邮件', 'ibabyeveryday@126.com', [user.email]
-    # send_mail(subject, mail_content(), mail_from, mail_to, fail_silently=True)
-    text_content = 'This is an important message'
-    msg = EmailMultiAlternatives(subject,text_content,mail_from, mail_to)
-    msg.attach_alternative(_mail_content(user), 'text/html')
-    msg.send()
-
 @csrf_exempt
-@transaction.commit_on_success
+@transaction.atomic
 def register_base_info(request):
     if request.method == 'POST':
         # return Json().http_response()  #TODO test
@@ -81,3 +67,37 @@ def register_base_info(request):
         else:
             return Json(base_info_form.errors).http_response(success=False, msg="参数校验不合法")
     return Json().http_response(success=False, msg="请求错误,get方法不允许")
+
+
+def email_activate(request, username, activate_code):
+    if username is None:
+        pass
+    if activate_code is None:
+        pass
+    find_users = User.objects.filter(username=username)
+    if find_users:
+        return Json().http_response(success=False, msg='用户不存在')
+    activate_user = find_users.get(0)
+    password = activate_user.password
+    if activate_code == Md5Util.md5(password):
+        activate_user.update(is_active=True)
+        return Json().http_response(msg="激活成功")
+    else:
+        return Json().http_response(success=False, msg="激活失败")
+
+
+
+def _mail_content(user):
+    html_content = u'%s,您好:<br/>' % user.username
+    html_content += u'&nbsp;&nbsp;您需要点击超链接激活您的邮件:<a href="http://localhost:8000/email_activate/%s/%s">这里</a>' % (
+        user.username, Md5Util.md5(user.password))
+    return html_content
+
+
+def _send_reg_activate_mail(user):
+    subject, mail_from, mail_to = '来自爱宝天天的账号激活邮件', 'ibabyeveryday@126.com', [user.email]
+    # send_mail(subject, mail_content(), mail_from, mail_to, fail_silently=True)
+    text_content = 'This is an important message'
+    msg = EmailMultiAlternatives(subject, text_content, mail_from, mail_to)
+    msg.attach_alternative(_mail_content(user), 'text/html')
+    msg.send()
